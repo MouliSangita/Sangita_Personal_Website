@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div id="navbar"></div>
+    </header>
+    <main>
+        <section id="hero">
+            <h1>My Projects</h1>
+            <h2>Creating innovative solutions.</h2>
+            <h3>Explore my work and achievements.</h3>
+            <p>Here you'll find a collection of my best projects, showcasing my skills and passion for development.</p>
+        </section>
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <p>Details about your projects.</p>
+            <!-- Add more project details here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
+    <script>
+        // Load the navbar.html content into the div with id "navbar"
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+    </script>
+</body>
+</html>
