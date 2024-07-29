@@ -23,12 +23,17 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 98vw; /* Full viewport width */
+    padding: 90px -1000px;
+    background-color: #0a192f; /* Add your background color */
 }
 
 .nav-left {
     display: flex;
     align-items: center;
+    flex-grow: 1; /* Takes up available space */
+    margin-left: 30px;
+
 }
 
 .nav-right ul {
@@ -36,10 +41,12 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
+    margin-right: 30px;
+
 }
 
 .nav-right ul li {
-    margin-left: 20px;
+    margin-left: 80px;
 }
 
 .nav-title {
@@ -81,6 +88,14 @@ nav {
     width: 100%;
 }
 
+/* .nav-separator {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+} */
+
+
+/*         */
 main {
     display: flex;
     flex-direction: column;
@@ -139,111 +154,121 @@ main {
 #about {
     background-color: #0a192f;
     padding: 50px 20px;
-    color: #ccd6f6;
+    color: #ffffff;
 }
 
 #about h2 {
     font-size: 2.5em;
     margin-bottom: 30px;
-    color: #ffffff;
     text-align: center;
-    position: relative;
-}
-
-#about h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #ff6347; /* Pink underline */
-    margin: 10px auto 0;
 }
 
 .about-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Allow items to wrap for responsiveness */
+}
+
+.profile-container {
+    width: 45%;
 }
 
 .profile-icon {
     width: 150px;
     height: 150px;
-    border: 2px solid #64ffda;
+    border: 2px solid #ffffff;
     border-radius: 50%;
-    margin-bottom: 30px;
-    background-size: cover; /* Ensure image covers the area */
-    background-position: center; /* Center the image */
-    margin-right: 30px; /* Adjust spacing */
+    margin-bottom: 20px;
+    margin-left: 150px;
 }
 
 .about-text {
     font-size: 1em;
     line-height: 1.6;
-    margin-bottom: 30px;
-    max-width: 50%;
-    flex: 1;
-    padding: 20px;
-    text-align: left; /* Align text to the left */
+    color: #ffffff;
+    margin-right: 90px;
+
 }
 
 .skills {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
-    gap: 20px;
-    width: 100%;
+    display: flex;
     justify-content: center;
-    margin-top: 20px;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.skills-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skills-column:nth-child(2) {
+    margin-top: -70px; /* Adjust this value to align the middle column as desired */
 }
 
 .skill-icon {
-    background-color: #112240;
+    background-color: #112240; /* Dark background color from the image */
     border-radius: 8px;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 120px; /* Adjusted size */
-    height: 120px; /* Adjusted size */
-    border: 1px solid #64ffda;
+    border: 1px solid #64ffda; /* Adding the border with the color from the image */
+    transition: all 0.3s ease;
+    width: 170px; /* Set a fixed width */
+    height: 70px; /* Set a fixed height */
+}
+
+.skill-icon img {
+    width: 1300px; /* Adjust the size of the icon image */
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.skill-icon span {
+    font-size: 12px; /* Adjust the font size as needed */
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.skill-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .skill-icon img {
     width: 50px;
     height: 50px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .skill-icon span {
     font-size: 0.8em;
     text-align: center;
-    color: #ccd6f6;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
     .about-content {
         flex-direction: column;
-        text-align: center;
     }
 
-    .profile-icon {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .about-text {
-        max-width: 100%;
-        text-align: center;
+    .profile-container, .skills {
+        width: 100%;
     }
 
     .skills {
-        grid-template-columns: 1fr;
+        margin-top: 30px;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-
+/* Projects section */
 #projects {
     background-color: #0a192f;
     padding: 50px 20px;
@@ -268,8 +293,9 @@ main {
 }
 
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: nowrap; /* Keep items in a single row */
+    overflow-x: auto; /* Enable horizontal scrolling */
     gap: 20px;
     width: 100%;
     justify-content: center;
@@ -285,6 +311,8 @@ main {
     justify-content: center;
     border: 1px solid #64ffda;
     color: #ccd6f6;
+    min-width: 300px; /* Ensure each card has a minimum width */
+    max-width: 300px; /* Restrict maximum width */
 }
 
 .project-card h3 {
@@ -301,7 +329,13 @@ main {
 
 @media (max-width: 768px) {
     .projects-container {
-        grid-template-columns: 1fr;
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: none;
     }
 }
 
@@ -342,9 +376,9 @@ main {
     top: 0;
     bottom: 0;
     left: 50%;
-    width: 16px;
-    background-color: #ffffff;
-    z-index: 7; /* Ensure it's above other content */
+    width: 4px; /* Adjusted width of the line */
+    background-color: #64ffda; /* Changed to a different color */
+    z-index: 1; /* Ensure it's below the content */
     transform: translateX(-50%); /* Center the line */
 }
 
@@ -352,23 +386,29 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Ensure proper positioning */
+    padding: 0 20px; /* Ensure content doesn't overlap the line */
 }
 
 .timeline-item {
     position: relative;
     width: 50%;
     margin-bottom: 30px;
-    padding: 0 80px; /* Added padding to ensure content doesn't overlap */
+    padding: 0 20px; /* Adjust padding for spacing */
 }
 
 .timeline-item.right {
     align-self: flex-end;
     text-align: right;
+    margin-top: 15px;
+    padding: 0 400px;
+
 }
 
 .timeline-item.left {
     align-self: flex-start;
     text-align: left;
+    padding: 0 640px;
 }
 
 .timeline-content {
@@ -404,4 +444,18 @@ main {
     }
 }
 
+.side-line {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #8892b0; /* Adjust color as needed */
+}
 
+.left-line {
+    left: 40px;
+}
+
+.right-line {
+    right: 40px;
+}

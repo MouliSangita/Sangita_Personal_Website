@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="lines-container"></div>
     <header>
         <div id="navbar"></div>
     </header>
@@ -17,37 +18,52 @@
             <h3>follow your intrusive thoughts, cause they get questionable.</h3>
             <p>I'm a software engineer because I hate my life</p>
             <a href="#contact" class="button">Get In Touch (pls dont)</a>
-        </section>
+        </section> 
         <section id="about">
             <h2>About</h2>
             <div class="about-content">
-                <div class="profile-icon" style="background-image: url('path/to/profile-pic.png');"></div>
-                <p class="about-text">
-                    Fully committed to the philosophy of life-long learning, I'm a full stack developer with a deep passion for JavaScript, React and all things web development. The unique combination of creativity, logic, technology and never running out of new things to discover, drives my excitement and passion for web development. When I'm not at my computer I like to spend my time reading, keeping fit and playing guitar.
-                </p>
+                <div class="profile-container">
+                    <div class="profile-icon"></div>
+                    <p class="about-text">
+                        Fully committed to the philosophy of life-long learning, I'm a full stack developer with a deep passion for JavaScript, React and all things web development. The unique combination of creativity, logic, technology and never running out of new things to discover, drives my excitement and passion for web development. When I'm not at my computer I like to spend my time reading, keeping fit and playing guitar.
+                    </p>
+                </div>
                 <div class="skills">
-                    <div class="skill-icon"><img src="path/to/aws.png" alt="HTML"><span>HTML</span></div>
-                    <div class="skill-icon"><img src="path/to/C_Logo.png" alt="C"><span>JAVASCRIPT</span></div>
-                    <div class="skill-icon"><img src="path/to/cplus.png" alt="C++"><span>SASS</span></div>
-                    <div class="skill-icon"><img src="path/to/css.jpeg" alt="CSS"><span>CSS</span></div>
-                    <div class="skill-icon"><img src="path/to/office.png" alt="Office Suite"><span>REACT</span></div>
-                    <div class="skill-icon"><img src="path/to/python.jpg" alt="Python"><span>NEXT.JS</span></div>
-                    <div class="skill-icon"><img src="path/to/sql.png" alt="SQL"><span>EXPRESS.JS</span></div>
-                    <div class="skill-icon"><img src="path/to/mongo.png" alt="MongoDB"><span>MONGODB</span></div>
-                    <div class="skill-icon"><img src="path/to/nodejs-icon.png" alt="Node.js"><span>NODE.JS</span></div>
-                    <div class="skill-icon"><img src="path/to/git.png" alt="Git"><span>GIT</span></div>
+                    <div class="skills-column">
+                        <div class="skill-icon"><img src="C_Logo.png" alt="C"><span>C</span></div>
+                        <div class="skill-icon"><img src="cplus.png" alt="C++"><span>C++</span></div>
+                        <div class="skill-icon"><img src="aws.png" alt="AWS"><span>AWS</span></div>
+                    </div>
+                    <div class="skills-column">
+                        <div class="skill-icon"><img src="sql.png" alt="SQL"><span>SQL</span></div>
+                        <div class="skill-icon"><img src="python.jpg" alt="Python"><span>Python</span></div>
+                        <div class="skill-icon"><img src="mongo.png" alt="MongoDB"><span>MONGODB</span></div>
+                        <div class="skill-icon"><img src="html.png" alt="HTML"><span>HTML</span></div>
+
+                    </div>
+                    <div class="skills-column">
+                        <div class="skill-icon"><img src="office.png" alt="Office Suite"><span>Office Suite</span></div>
+                        <div class="skill-icon"><img src="git.png" alt="Git"><span>Git</span></div>
+                        <div class="skill-icon"><img src="css.jpeg" alt="CSS"><span>CSS</span></div>
+                    </div>
                 </div>
             </div>
         </section>
+        
     </main>
     <footer>
-        <p>&copy; 2024 My Portfolio</p>
+        /* put a footer here later */
     </footer>
     <script>
         // Load the navbar.html content into the div with id "navbar"
         fetch('navbar.html')
             .then(response => response.text())
             .then(data => document.getElementById('navbar').innerHTML = data);
+        
+        // Load the lines.html content
+        fetch('lines.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('lines-container').innerHTML = data);
     </script>
 </body>
 </html>
